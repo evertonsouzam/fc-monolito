@@ -1,4 +1,6 @@
-import Address from "../../../@shared/domain/value-object/address"
+//import Address from "../../../@shared/domain/value-object/address"
+
+import { Address } from "../../../@shared/domain/value-object/address"
 
 
 export interface AddClientInputDto {
