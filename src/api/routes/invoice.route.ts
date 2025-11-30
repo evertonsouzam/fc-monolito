@@ -1,0 +1,15 @@
+import express, { Request, Response } from "express";
+import { InvoiceFacadeFactory } from "../../modules/invoice/factory/invoice.facade.factory";
+
+export const invoicesRoute = express.Router();
+
+invoicesRoute.get("/:id", async (req: Request, res: Response) => {
+  const facade = InvoiceFacadeFactory.create();
+  try {
+    const output = await facade.find({ id: req.params.id });
+    console.log("INVOICE FACADE OUTPUT:", JSON.stringify(output, null, 2));
+    res.status(200).send(output);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+});
